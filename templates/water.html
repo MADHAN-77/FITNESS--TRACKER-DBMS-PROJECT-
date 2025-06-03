@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Record Water Intake{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Record Water Intake</h2>
+    <form method="POST">
+        <label for="glasses">Glasses of Water:</label>
+        <input type="number" id="glasses" name="glasses" required>
+        <button type="submit">Log Water</button>
+    </form>
+    <h3>Your Water Intake Logs</h3>
+    <table>
+        <tr><th>Glasses</th><th>Date</th></tr>
+        {% for log in water_logs %}
+        <tr><td>{{ log.glasses }}</td><td>{{ log.date }}</td></tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

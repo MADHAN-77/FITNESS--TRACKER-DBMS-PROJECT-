@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Track Workout{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Track Workout</h2>
+    <form method="POST">
+        <label for="exercise">Exercise:</label>
+        <input type="text" id="exercise" name="exercise" required>
+        <label for="duration">Duration (minutes):</label>
+        <input type="number" id="duration" name="duration" required>
+        <button type="submit">Log Workout</button>
+    </form>
+    <h3>Your Workouts</h3>
+    <table>
+        <tr><th>Exercise</th><th>Duration (min)</th><th>Date</th></tr>
+        {% for workout in workouts %}
+        <tr><td>{{ workout.exercise }}</td><td>{{ workout.duration }}</td><td>{{ workout.date }}</td></tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

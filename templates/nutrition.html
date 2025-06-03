@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Log Nutrition{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Log Nutrition</h2>
+    <form method="POST">
+        <label for="food">Food:</label>
+        <input type="text" id="food" name="food" required>
+        <label for="calories">Calories:</label>
+        <input type="number" id="calories" name="calories" required>
+        <button type="submit">Log Nutrition</button>
+    </form>
+    <h3>Your Nutrition Logs</h3>
+    <table>
+        <tr><th>Food</th><th>Calories</th><th>Date</th></tr>
+        {% for log in nutrition_logs %}
+        <tr><td>{{ log.food }}</td><td>{{ log.calories }}</td><td>{{ log.date }}</td></tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

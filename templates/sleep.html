@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Monitor Sleep{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Monitor Sleep</h2>
+    <form method="POST">
+        <label for="hours">Hours Slept:</label>
+        <input type="number" step="0.1" id="hours" name="hours" required>
+        <button type="submit">Log Sleep</button>
+    </form>
+    <h3>Your Sleep Logs</h3>
+    <table>
+        <tr><th>Hours</th><th>Date</th></tr>
+        {% for log in sleep_logs %}
+        <tr><td>{{ log.hours }}</td><td>{{ log.date }}</td></tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
